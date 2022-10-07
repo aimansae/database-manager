@@ -9,4 +9,4 @@ if __name__ == "__main__":
     )
 
 # created base.html in templates folder
-# # run the file typing python3 run.py    
+# # run the file typing python3 run.py

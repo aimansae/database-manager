@@ -16,13 +16,15 @@ class Category(db.Model):
     tasks = db.relationship("Task", backref="category",
                             cascade="all, delete", lazy=True)
 
+    # https://www.educative.io/answers/what-is-the-repr-method-in-python
+
     def __repr__(self):
         return self.category_name
 
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    task_name = db.Column(db.String(25), unique=True, nullable=False)
+    task_name = db.Column(db.String(50), unique=True, nullable=False)
     task_description = db.Column(db.Text, nullable=False)
     # db.Text allows longer string, inputs too
     is_urgent = db.Column(db.Boolean, default=False, nullable=False)
