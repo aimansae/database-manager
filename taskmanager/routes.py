@@ -12,7 +12,10 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    # create a new variable uesry the imported model Category, 
+    # the default method sorts thinks by id name, so use Category.query.order_by(Category.category_name).all()
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("categories.html", categories=categories) # variable for html, second defined above
 
 
 @app.route("/add_category", methods=["GET", "POST"])
