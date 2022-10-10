@@ -67,6 +67,7 @@ def add_task():
     return render_template("add_task.html", categories=categories)
 
 
+
 @app.route("/edit_task/<int:task_id>", methods=["GET", "POST"])
 def edit_task(task_id):
     task = Task.query.get_or_404(task_id)
@@ -80,3 +81,11 @@ def edit_task(task_id):
         # session add not needed as we are modifying it
         db.session.commit()
     return render_template("edit_task.html", task=task, categories=categories)
+
+
+@app.route("/delete_task/<int:task_id>")
+def delete_task(task_id):
+    task = Task.query.get_or_404(task_id)
+    db.session.delete(task)
+    db.session.commit()
+    return redirect(url_for("home"))
