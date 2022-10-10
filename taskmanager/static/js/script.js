@@ -18,12 +18,12 @@ M.Datepicker.init(datepicker, {
     done: "Select"
   }
 });
-// select initialization
-var selects = document.querySelectorAll('select');
-M.For
-// collapsible initialization
+    // select initialization
+    let selects = document.querySelectorAll("select");
+    M.FormSelect.init(selects);
 
-var collapsibles = document.querySelectorAll('.collapsible');
-M.Collapsible.init(collapsibles);
+    // collapsible initializataion
+    let collapsibles = document.querySelectorAll(".collapsible");
+    M.Collapsible.init(collapsibles)
 
 });
